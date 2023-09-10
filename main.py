@@ -22,16 +22,7 @@ class App(QWidget):
         self.main_menu.textBrowser.setText(f"{num1}")
     def ontvet(self):
         global num1
-
-        if re.search(r"cos",num1)[0]== "cos":
-            num1 = str(math.cos(int(re.search(r"\d+",num1)[0])))
-
-        elif re.search(r"sin",num1)[0] == "sin":
-            num1 = str(math.sin(int(re.search(r"\d+",num1)[0])))
-
-        else:
-            num1 = str(eval(num1))
-
+        num1 = str(eval(num1))
         self.main_menu.textBrowser.setText(f"{eval(num1)}")
     def button(self):
         self.main_menu.pushButton.clicked.connect(lambda: self.info('1'))
