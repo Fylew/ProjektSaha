@@ -1,13 +1,9 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication,QWidget
 import sys
-import random
-import datetime
 
 num1 = ""
 class App(QWidget):
-
-
 
 
     def __init__(self):
