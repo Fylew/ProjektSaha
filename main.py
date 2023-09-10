@@ -1,6 +1,8 @@
 from PyQt5 import uic
 from PyQt5.QtWidgets import QApplication,QWidget
 import sys
+import math
+import  re
 
 num1 = ""
 class App(QWidget):
@@ -20,7 +22,16 @@ class App(QWidget):
         self.main_menu.textBrowser.setText(f"{num1}")
     def ontvet(self):
         global num1
-        num1 = str(eval(num1))
+
+        if re.search(r"cos",num1)[0]== "cos":
+            num1 = str(math.cos(int(re.search(r"\d+",num1)[0])))
+
+        elif re.search(r"sin",num1)[0] == "sin":
+            num1 = str(math.sin(int(re.search(r"\d+",num1)[0])))
+
+        else:
+            num1 = str(eval(num1))
+
         self.main_menu.textBrowser.setText(f"{eval(num1)}")
     def button(self):
         self.main_menu.pushButton.clicked.connect(lambda: self.info('1'))
@@ -40,6 +51,10 @@ class App(QWidget):
         self.main_menu.pushButton_15.clicked.connect(lambda: self.info("-"))
         self.main_menu.pushButton_16.clicked.connect(lambda: self.info("+"))
         self.main_menu.pushButton_17.clicked.connect(lambda: self.info("**"))
+        self.main_menu.pushButton_18.clicked.connect(lambda: self.info("cor"))
+        self.main_menu.pushButton_19.clicked.connect(lambda: self.info("cos"))
+        self.main_menu.pushButton_20.clicked.connect(lambda: self.info("sin"))
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
